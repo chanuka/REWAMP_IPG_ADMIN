@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : IPGMERCHANTLOGIN.xml
+    Created on : December 10, 2010, 9:42 AM
+    Author     : upul
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+<ipgmerchantlogin>
+	<configurations>
+		<primaryurl>C:/epayipg/ipgmerchantlogin/</primaryurl>
+                <secondaryurl>/usr/local/epayipg/ipgmerchantlogin/</secondaryurl>
+	</configurations>
+</ipgmerchantlogin>
+</root>

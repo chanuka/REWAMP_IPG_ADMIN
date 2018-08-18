@@ -1,0 +1,246 @@
+/*
+Template name: Indigo
+Template URI: http://templates.arcsin.se/indigo-website-template/
+Release date: 2006-07-27
+Description: A lightweight, simple and pleasant design.
+Author: Viktor Persson
+Author URI: http://arcsin.se/
+
+This template is licensed under a Creative Commons Attribution 2.5 License:
+http://templates.arcsin.se/license/
+*/
+
+/* standard elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(../img/internal/bg.gif) repeat-x;
+
+    /*font: normal 80% "Lucida Sans Unicode",sans-serif;*/
+    font-size:75%;
+    font-family: Helvetica, Arial, Sans-Serif;
+    margin: 0;
+}
+input {
+    /*font: normal 1.1em "Lucida Sans Unicode",sans-serif;*/
+
+    font-size:1.1em;
+    font-family: Helvetica, Arial, Sans-Serif;
+}
+p,cite,code,ul {
+    font-size: 105%;
+    /*padding-bottom: 1.2em;*/
+}
+h {
+    font-size: 1.1em;
+    color: #004A9D;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+h1 {
+    font-size: 1.4em;
+    margin-bottom: 4px;
+}
+code {
+    background: url(../img/internal/bgcode.gif);
+    border: 1px solid #F0F0F0;
+    border-left: 6px solid #39F;
+    display: block;
+    /*font: normal 1.1em "Lucida Sans Unicode",serif;*/
+    font-size:1.1em;
+    font-family: Helvetica, Arial, Sans-Serif;
+    margin-bottom: 12px;
+    padding: 8px 10px;
+    white-space: pre;
+}
+cite {
+    background: url(../img/internal/quote.gif) no-repeat;
+    display: block;
+    /*font: normal 1.3em "Lucida Sans Unicode",serif;*/
+    font-size:1.3em;
+    font-family: Helvetica, Arial, Sans-Serif;
+    padding-left: 28px;
+}
+h1,h2,h3 {
+    padding-top: 6px;
+}
+/* misc */
+.clearer {
+    clear: both;
+}
+
+/* structure */
+.container {
+    background: url(../img/internal/topleft.gif) no-repeat;
+}
+
+.header {
+    height: 92px;
+}
+
+/* title */
+.title {
+    float: left;
+    padding: 28px 0 0 76px;
+}
+.title h1 {
+    /*font: normal 2em Verdana,sans-serif;*/
+    font-size:2em;
+    font-family: Helvetica, Arial, Sans-Serif;
+}
+/* navigation */
+.navigation {
+    float: left;
+    height: 92px;
+    margin-left: 24px;
+    padding: 0 16px;
+}
+.navigation a {
+    float: left;
+    /*font: bold 1.2em "Trebuchet MS",sans-serif;*/
+    font-size:1.2em;
+    font-weight: bold;
+    font-family: Helvetica, Arial, Sans-Serif;
+    margin-top: 56px;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+}
+.navigation a:hover {
+}
+
+/* main */
+.main {
+    background: url(../img/internal/bgmain.gif) no-repeat;
+    clear: both;
+    padding: 12px 12px 0 40px;
+}
+
+/* main left */
+.sidenav {
+    float: right;
+    margin-right: 1%;
+    width:auto;
+}
+
+.sidenav h1 {
+    border-bottom: 1px dashed #DDD;
+    font-size: 1.2em;
+    height: 20px;
+    margin-top: 1.2em;
+}
+.sidenav ul {
+    margin: 0;
+    padding: 0;
+}
+.sidenav li { 
+    border-bottom: 1px dashed #EEE;
+    list-style: none;
+    margin: 0;
+}
+.sidenav li a {
+    display: block;
+    font-size: 0.9em;
+    padding: 3px 6px 3px 18px;
+    text-decoration: none;
+}
+.sidenav li a:hover {
+    background: url(../img/internal/nav_li.gif) no-repeat;
+}
+
+/* content */
+.content {
+    float: left;
+    width: 20%;
+    overflow: auto;
+    margin:0px 5px 10px 0px;
+}
+.content .descr {
+    margin-bottom: 6px;
+}
+.content li {
+    list-style: url(../img/internal/li.gif);
+    margin-left: 18px;
+}
+font.errormessage{
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ff6666;
+    font-weight: bold;
+    font-variant: normal;
+}
+/* search form */
+.styled {
+    border: 3px double #E5E5E5;
+    padding: 2px 3px;
+}
+.button {
+    border: 1px solid #AAA;
+    margin-left: 5px;
+    padding: 2px 3px;
+}
+
+/* footer */
+.footer {
+    background: #0094D6 url(../img/internal/bgfooter.gif) repeat-x;
+    font-size: 0.8em;
+    line-height: 40px;
+    text-align: center;
+}
+.footer a {
+    text-decoration: none;
+    color:#000
+}
+.footer a:hover {
+    text-decoration: underline;
+    color:#999
+}
+#content1 {
+    float: left;
+    width: 75%;
+    margin:0px 0px 10px 0px;
+    overflow: auto;
+} 
+
+
+
+input{
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border: 1px solid #C3D9FF;
+}
+input.inputfield{
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+input.inputfield-mandatory{
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background: #ffc;
+}
+input.inputfield-Description{
+    width: 270px;
+}
+
+input.inputfield-Description-mandatory{
+    width: 300px;
+    background: #ffc;
+}
+input.button-positive{
+    background: #C3D9FF;
+}
+
+.button {
+    background-color: #A491AA;
+    height: 1.5em; width: 6em;
+
+
+}
+.mandatoryfield{
+    color: red;
+    font-weight: normal;
+    font-size: 10px;
+}

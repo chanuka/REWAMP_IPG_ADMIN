@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : MPIREQUESTLog.xml
+    Created on : December 2, 2010, 10:57 AM
+    Author     : upul
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+
+<mpirequestlogconfiguration>
+	<configurations>
+		<primaryurl>C:/epayipg/mpirequest/</primaryurl>
+                <secondaryurl>/usr/local/epayipg/mpirequest/</secondaryurl>
+	</configurations>
+</mpirequestlogconfiguration>
+
+</root>

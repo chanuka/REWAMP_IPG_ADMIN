@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : TxnSwitch.xml
+    Created on : November 16, 2010, 3:42 PM
+    Author     : saminda
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+
+<txnswitchconfiguration>
+	<configurations>
+		<ip>192.168.1.209</ip>
+                <port>7200</port>
+	</configurations>
+</txnswitchconfiguration>
+
+</root>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : MPIRESPONSELog.xml
+    Created on : December 2, 2010, 10:58 AM
+    Author     : upul
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+
+<mpiresponselogconfiguration>
+	<configurations>
+		<primaryurl>C:/epayipg/mpiresponse/</primaryurl>
+                <secondaryurl>/usr/local/epayipg/mpiresponse/</secondaryurl>
+	</configurations>
+</mpiresponselogconfiguration>
+
+</root>

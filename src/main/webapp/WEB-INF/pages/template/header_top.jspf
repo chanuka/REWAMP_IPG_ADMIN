@@ -1,0 +1,189 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Internet Payment Gateway</title>
+<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/nav/images/favicon.png">
+
+<sj:head jqueryui="true" jquerytheme="flick" customBasepath="resources/themes"/>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/bootstrap.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/font-awesome/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/loginmain/css/login.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/style.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/header.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/section.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/footer.css"/>
+
+<style>
+
+    /*jQuery ui overide*/
+
+    /*    .ui-jqgrid tr.ui-row-ltr td{
+            font-size: 10px;
+            font-family: sans-serif;
+        }*/
+    .ui-jqgrid .ui-jqgrid-htable th{
+
+        background-color:  #0074bc;
+        border: none;
+        color: white;
+        font-family: aller;
+    }
+
+    .ui-jqgrid .ui-jqgrid-hdiv{
+        background-color:  #607D8B;
+        padding: 0;
+        overflow: none;
+    }
+    .ui-jqgrid .ui-jqgrid-titlebar{
+        border: none;
+        border-bottom: 2px solid #ff0808;
+        padding: 0 0 0 13px !important;
+        font-family: sanFrancis;
+        font-weight: bold;
+        font-size: 11px;
+        letter-spacing: 1px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .ui-jqgrid .ui-jqgrid-pager{
+        background-color: #ffffff;
+        border-top: 2px solid #ff0808;
+        font-family: sans-serif;
+        color: black;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .ui-jqgrid{
+        border-radius: 10px;
+        border: none;
+        /*overflow: none;*/
+        /*margin-right: 20px;*/
+
+    }
+    .ui-jqgrid .ui-jqgrid-btable{
+        border: 0px solid #ffffff;
+    }
+    
+    .ui-jqgrid-resize-ltr{
+        width:5px;
+    }
+
+
+
+    .btn-functions{
+        color: #607d8b !important;
+        background-color: #fdc60d !important;
+        border-color: #ebb209 !important;
+        border-radius: 4px !important;
+        font-family: aller !important;
+    }
+    .btn-functions:hover{
+        color: #607d8b;
+        background-color: #FFC107;
+        border-color: #FF9800;
+    }
+    .btn-reset{
+        color: #ffffff;
+        background-color: #607d8b;
+        border-color: #566c84;
+        border-radius: 4px;
+        font-family: aller;
+    }
+    .btn-reset:hover{
+        color: #ffffff;
+        background-color: #2b3c4c;
+        border-color: #121315;
+    }
+    .control-label{
+        color:black;
+    }
+
+
+    /*bootstarp override*/
+    .form-control{
+        background-color: rgba(255, 255, 255, 0.81);
+        border: 1px solid #9cb4cc;
+        color:black;
+        border-radius: 0px;
+        height: 34px;
+        padding: 0px 10px 0px 10px;
+        /*font-size: 12px;*/
+    }
+    .form-control:focus{
+        border-color: #2b3c4c;
+    }
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        background-color: rgba(61, 67, 68, 0.57);
+        opacity: 1;
+        cursor: not-allowed;
+    }
+    table a:not(.btn), .table a:not(.btn){
+        text-decoration: none;
+    }
+    .hasDatepicker[readonly]{
+        background-color: rgba(255, 255, 255, 0.99);
+        cursor: pointer;
+    }
+
+
+    /*moving select sections*/
+    .move-change-side{
+        background-color: rgba(171, 171, 171, 0.55);
+        padding: 13px;
+        border-radius: 10px;
+        margin: 10px 0 20px 0;
+        border-left: 5px solid #607d8b;  
+    }
+    .move-change-side  a{
+        background-color: #84959e;
+        color: white;
+        width: 50px;
+        height: 20px;
+        margin: 4px 0 4px 0;
+        border-radius: 5px;
+        border: 2px solid #7e8b9a;
+    }
+    .move-change-side  a:hover{
+        background-color: #7e8b9a;
+        color: black;
+        border: 2px solid #84959e;
+    }
+    .move-selectClass{
+        border: 7px solid white;
+        height: 145px !important;
+        min-width: 145px;
+        padding: 12px;
+        font-size: 14px;
+        font-family: aller;
+    }
+    .move-buttonClass{
+        float: left;
+        text-align: center;
+        width: 100px;
+        padding: 18px 0px 0 0px;
+    }
+    .move-change-side td.textNew{
+        font-size: 13px;
+        font-weight: bold;
+        font-family: aller;
+        padding: 1px 5px;
+        width: auto;
+        color: black;
+    }
+    table.table-newtheme{
+        padding: 0;
+        background-color: white;
+    }
+    table.table-newtheme tbody> tr> td{
+        padding: 0px 0px 0px 20px;
+        font-family: aller;
+        font-size: 13px;
+        font-weight: bold;
+        color: black;
+    }
+
+</style>
+
+<!--Generate random no for csrf attacks-->
+<jsp:useBean id="random" class="java.util.Random" scope="application" />
+<c:set var="csrfValue" value="${random.nextInt(100000000)}" scope="session" />

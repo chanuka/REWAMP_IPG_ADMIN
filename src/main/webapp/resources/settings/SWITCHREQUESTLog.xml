@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : SWITCHREQUESTLog.xml
+    Created on : December 7, 2010, 11:39 AM
+    Author     : saminda
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+
+<mpirequestlogconfiguration>
+	<configurations>
+		<primaryurl>C:/epayipg/switchrequest/</primaryurl>
+                <secondaryurl>/usr/local/epayipg/switchrequest/</secondaryurl>
+	</configurations>
+</mpirequestlogconfiguration>
+
+</root>

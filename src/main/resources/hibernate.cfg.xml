@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>-->
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <!--<property name="hibernate.connection.password">password</property>-->
+        <!--<property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.1.93:1521:orcl</property>-->
+        <!--<property name="hibernate.connection.username">ipgdev</property>-->
+        <property name="hibernate.connection.datasource">jdbc/IPG_JNDI</property>
+        <property name="hibernate.connection.autocommit">false</property>
+        <!-- no cache-->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <!-- Enable Hibernate's automatic session context management, in this case the session will be close after each 
+        transaction! -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Echo all executed SQL to stdout -->
+        <!--<property name="show_sql">true</property>-->
+        <!-- auto create tables -->
+        <property name="hbm2ddl.auto">none</property>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgstatus"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipg3dsecureverificationrequest"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgsectionpage"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgpasswordpolicy"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgModulestatusId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgmerchantservicechargeId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgrule"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgtransactioservicecharge"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Epictxnrequests"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgtransaction"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgsection"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchantcategory"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Epictxnreversdetails"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.EpictxnreversdetailsId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgtransactionId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgmerchantcurrencyId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgonusbinrange"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgcommonfilepath"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgcountry"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchantaddon"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchantservicecharge"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchant"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchnatterminal"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipguserrole"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgpagetaskId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgpagetask"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgrulescope"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgccbafile"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgstatuscategory"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipguserroletype"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgsystemaudit"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchantcredential"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgservicechargetype"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgccbatransaction"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipg3dsecureverificationres"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgsecuritylevel"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgheadmerchant"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgaddress"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgbatchId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgbin"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgbatch"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipguserrolesection"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgriskprofileblockedmccId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgcurrency"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgmerchantruleId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgModulestatus"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgservicecharge"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgcardassociation"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgenginerequest"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpguserrolesectionId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgtransactionhistory"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchantrule"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgtask"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgruletype"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgpage"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgsystemuser"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmpiinfo"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgriskprofile"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgenginerequestId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgmerchantcurrency"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgriskprofileblockedmcc"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgsectionpageId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgriskprofileblockedcurrency"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgriskprofileblockedcurrencyId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgriskprofileblockedbinId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgriskprofileblockedcountryId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgriskprofileblockedcountry"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgriskprofileblockedbin"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgauthconfiguration"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgauthconfigurationId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgecivalue"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgsettlementfile"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgpagetaskTemplate"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgpagetaskTemplateId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgtriggersequence"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgruletypeId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.IpgruleoperatorId"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgruleoperator"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgcommonconfig"/>
+        <mapping class="com.epic.epay.ipg.util.mapping.Ipgresponsecodes"/>
+    </session-factory>
+</hibernate-configuration>

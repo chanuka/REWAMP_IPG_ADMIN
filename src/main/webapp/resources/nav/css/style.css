@@ -1,0 +1,187 @@
+@import "fonts.css";
+@font-face {
+    font-family: Aller;
+    src: url(../../nav/fonts/Aller_Bd.woff);
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: Aller;
+    src: url(../../nav/fonts/Aller_Lt.woff);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: adventPro;
+    src: url(../../nav/fonts/adventpro-light.woff);
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: sanFrancis;
+    src: url(../../nav/fonts/SanFranciscoDisplay-Light.WOFF);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: sanFrancis;
+    src: url(../../nav/fonts/SanFranciscoDisplay-Regular.WOFF);
+    font-weight: normal;
+    font-style: normal;
+}
+.sidebar-left-collapse::-webkit-scrollbar {
+    width: 8px !important;
+    background-color: #f1f1f1;
+}
+.sidebar-left-collapse::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0px black;
+    background-color: #000000;
+}
+html {
+    background-color: #fff;
+    /*overflow-y: auto;*/
+}
+body {
+    font: sanFrancis;
+    padding: 0;
+    margin: 0;
+}
+h5 {
+    padding: 0;
+    margin: 0;
+}
+.active {
+    background-color: rgba(255, 0, 0, 0.51) !important;
+}
+.active > a{
+    color:white !important;
+}
+.company-logo {
+    text-align: center;
+}
+
+.background-wallpaper {
+    /*background-image: url(../images/backipg.jpg);*/
+    background-color: white;
+    background-size: 1366px 768px;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 1;
+}
+
+/* The left-collapsing sidebar */
+
+.sidebar-left-collapse {
+    margin: 45px 0 0 0;
+    font-family: Raleway;
+    letter-spacing: -0.1px;
+    border-right:0px solid #95989A;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #3b3b3b;
+    /*background-image: url(../images/back_7.jpg);*/
+    /*background-size: cover;*/
+    width: 250px;
+    height: 100%;
+    overflow-y: auto;
+    padding: 35px 0;
+    /*box-shadow: 2px 4px 5px 0px rgba(128, 128, 128, 0.49);*/
+}
+.sidebar-left-collapse .sidebar-links {
+    margin: 30px auto;
+}
+.sidebar-links div > a {
+    display: block;
+    text-decoration: none;
+    margin: 0 auto 0px auto;
+    padding: 2px 0 2px 15px;
+    background-color: rgba(255, 255, 255, 0.16);
+    text-align: left;
+    color: #cecece;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 2;
+    border-top: 1px solid #cecece;
+    /*border-bottom: 3px solid #e8e8e8;*/
+    /* border-left-width: 12px; */
+    /* border-left-style: solid; */
+    /*transition: 0.2s border-left-width;*/
+}
+.sidebar-links div:last-child > a{
+    border-bottom:  1px solid #cecece;
+}
+/*.sidebar-links div > a:hover:after {
+    content: '';
+    float: right;
+    margin: -2px 0 0 0px;
+    border: 15px solid red;
+    border-color: transparent;
+    border-right-color: white;
+}*/
+.sidebar-links div > a:hover {
+    background-color: #607D8B;
+    border-left-width: 22px;
+}
+.sidebar-links div.selected > a {
+    background-color: #252525;
+    color: #ffffff;
+    /* line-height: 2.3; */
+    margin: 0;
+}
+.sidebar-links div ul.sub-links {
+    max-height: 0;
+    overflow: hidden;
+    list-style: none;
+    padding: 0 0 0 0;
+    color: #b3bcc5;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 24px;
+    margin: 0;
+    /*    transition: 0.5s;*/
+}
+.sidebar-links div.selected ul.sub-links {
+    max-height: 570px;
+    padding: 6px 0 12px 0px;
+}
+.sidebar-links div .sub-links a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: left;
+    font-size: 11px;
+}
+.sidebar-links > div > ul > li {
+    border-bottom: 1px solid #656565;
+    transition: 0.1s;
+    padding: 1px 0 1px 30px;
+    margin: 0;
+}
+.sidebar-links > div > ul > li:hover {
+    background-color: #000000;
+}
+
+/* Link Colors */
+
+.sidebar-links div.link-blue > a {
+    border-color: #487db2;
+}
+.sidebar-links div.link-red > a {
+    border-color: #da4545;
+}
+.sidebar-links div.link-yellow > a {
+    border-color: #d0d237;
+}
+.sidebar-links div.link-green > a {
+    border-color: #86be2e;
+}
+.sidebar-links div.link-default > a {
+    border-left-color: #0074bc;
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.action.extension" value="ipg" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="false"/>
+<!--    <constant name="struts.multipart.maxSize" value="1000000" />-->
+
+    
+    
+    <package name="pglobal" namespace="/" extends="struts-default,json-default,jasperreports-default">
+      
+        <interceptors>
+            <interceptor name="IPGAccesControl" class="com.epic.epay.ipg.util.interceptor.AccessControlInterceptor" />
+              
+            <interceptor-stack name="IPGDefaultStack">
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="basicStack"/>
+                <interceptor-ref name="IPGAccesControl"/>
+            </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="IPGDefaultStack"/>
+        
+        <global-results>
+            <result name="loginpage">/index.jsp</result>
+            <result name="multiaccess">/WEB-INF/pages/multiaccess.jsp</result>
+            <result name="acccontroler">/defaultaccesscontroler.jsp</result>
+        </global-results>
+        
+    </package>
+  
+    
+    <include file="control.xml"/>
+
+</struts>

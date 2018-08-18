@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : IPGErrorLog.xml
+    Created on : June 14, 2013, 9:38 AM
+    Author     : mahesh_m
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+
+<mpirequestlogconfiguration>
+<configurations>
+<primaryurl>C:/epayipg/errorlogs/</primaryurl>
+<secondaryurl>/usr/local/epayipg/errorlogs/</secondaryurl>
+</configurations>
+</mpirequestlogconfiguration>
+
+</root>

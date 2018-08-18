@@ -1,0 +1,30 @@
+@import "fonts.css";
+footer{
+    position: fixed;
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+    color: black;
+    z-index: 1000;
+    margin: 10px 20px;
+    bottom: 0;
+    right: 0;
+    background-color: #3b3b3b;
+    border-radius: 16px;
+    width: 31px;
+    height: 31px;
+    padding: 3px 5px;
+}
+.footer-cont{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 12px 60px;
+    background-color: #3b3b3b;
+    padding: 5px 10px;
+    color: white;
+    display: none;
+}
+.footer-button{
+    cursor: pointer;
+}

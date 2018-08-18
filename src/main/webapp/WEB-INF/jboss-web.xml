@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+    <context-root>/REWAMP_IPG_ADMIN_V1.00</context-root>
+<!--    <jboss-deployment-structure>  
+        <deployment>  
+            <resources>  
+                <resource-root path="WEB-INF/lib/bcprov-jdk14-1.38.jar" use-physical-code-source="false"/>  
+            </resources>  
+        </deployment>  
+    </jboss-deployment-structure> -->
+</jboss-web>

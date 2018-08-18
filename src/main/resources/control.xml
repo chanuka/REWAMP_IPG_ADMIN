@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- - This file is included by the struts.xml file. -->
+<struts>
+
+
+    <package name="login" extends="pglobal" namespace="/">
+
+        <default-action-ref name="DefLogin" />
+
+        <action name="DefLogin" class="com.epic.epay.ipg.action.login.LoginAction">
+            <result>index.jsp</result>
+        </action>
+
+        <action name="*UserLogin" method="{1}"
+                class="com.epic.epay.ipg.action.login.LoginAction">
+            <result name="message">/index.jsp</result>
+            <result name="success">WEB-INF/pages/template/mainmenu.jsp</result>
+        </action>
+    </package>
+
+
+
+    <package name="usermanagement" extends="pglobal" namespace="/">
+
+        <action name="*Task" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.usermanagement.TaskAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/usermanagement/task/task.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/usermanagement/task/taskinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/usermanagement/task/taskedit.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end TaskAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start SectionAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*Section" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.usermanagement.SectionAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/usermanagement/section/section.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/usermanagement/section/sectioninsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/usermanagement/section/sectionedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end SectionAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*Page" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.usermanagement.PageAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/usermanagement/page/page.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/usermanagement/page/pageinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/usermanagement/page/pageedit.jsp</result>          
+        </action>
+
+        <action name="*UserRole" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.usermanagement.UserRoleAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/usermanagement/userrole/userrole.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/usermanagement/userrole/userroleinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/usermanagement/userrole/userroleedit.jsp</result> 
+        </action>
+
+        <action name="*ChangePassword" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.usermanagement.PasswordResetAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="resetpassword">/defaultaccesscontroler.jsp</result>
+            <result name="view">/WEB-INF/pages/controlpanel/usermanagement/passwordreset.jsp
+            </result>
+            <result name="success"></result>
+        </action>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start userroleprivilage ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*UserRolePrivilege" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.usermanagement.UserRolePrivilegeAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="findpage" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="loadsections" type="json"></result>
+            <result name="findtask" type="json"></result>
+            <result name="loadpages" type="json"></result>
+            <result name="logoutuser" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/usermanagement/userroleprivilege/userroleprivilege.jsp</result>
+            <result name="cerror">/WEB-INF/pages/controlpanel/usermanagement/userroleprivilege/userroleprivilege.jsp</result>
+            <result name="assignrole">/WEB-INF/pages/controlpanel/usermanagement/userroleprivilege/userroleassign.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start userroleprivilage ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </package>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~start SystemUserMgt~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <package name="systemusermanagement" extends="pglobal"
+             namespace="/">
+
+        <action name="*SystemUser" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.usermanagement.SystemUserAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="check" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/usermanagement/systemuser/systemuser.jsp
+            </result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/usermanagement/systemuser/systemuserinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/usermanagement/systemuser/systemuseredit.jsp</result>
+        </action>
+
+
+        <action name="*PasswordPolicy" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.PasswordPolicyAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="reset" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/passwordpolicymgt.jsp
+            </result>
+        </action>
+
+
+    </package>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end SystemUserMgt ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start systemconfigmanagement package 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <package name="systemconfigmanagement" extends="pglobal"
+             namespace="/">
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*Bin" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.BinAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/bin/bin.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/bin/bininsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/bin/binedit.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start CardAssociation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*CardAssociation" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.CardAssociationAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/cardassociation/cardassociation.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/cardassociation/cardassociationinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/cardassociation/cardassociationedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end bin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start MCC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*MerchantCategory" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.MerchantCategoryAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/merchantcategory/merchantcategory.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/merchantcategory/merchantcategoryinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/merchantcategory/merchantcategoryedit.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end MCC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start CountryAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*Country" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.CountryAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/country/country.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/country/countryinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/country/countryedit.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end CountryAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start CountryAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*ServiceChargeType" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.ServiceChargeTypeAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/servicechargetype/servicechargetype.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/servicechargetype/servicechargetypeinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/servicechargetype/servicechargetypeedit.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end CountryAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start SystemAuditAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*SystemAudit" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.SystemAuditAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemaudit/systemaudit/audit.jsp
+            </result>
+            <result name="viewdetail">/WEB-INF/pages/controlpanel/systemaudit/systemaudit/viewaudit.jsp
+            </result>
+            <result name="report" type="jasper">
+                <param name="location">/WEB-INF/pages/reportscontrolpanel/systemaudit/auditReport.jasper</param>
+                <param name="dataSource">lst</param>
+                <param name="format">PDF</param>
+                <param name="contentDisposition">attachment;filename=Audit_Report.pdf</param>
+                <param name="reportParameters">parameterMap</param>
+            </result> 
+            
+            <result name="excelreport" type="stream">
+                <param name="contentType">"application/vnd.ms-excel"</param>
+                <param name="inputName">excelStream</param>
+                <param name="contentDisposition">attachment;filename="txnexplorer_report.xlsx"</param>
+                <param name="bufferSize">61440</param>
+            </result>
+            <result name="zip" type="stream">
+                <param name="contentDisposition">attachment;filename="txnexplorer_report.zip"</param>
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">zipStream</param>
+                <param name="bufferSize">61440</param>
+            </result> 
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end SystemAuditAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start ServiceChargeAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*ServiceCharge" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.ServiceChargeAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/servicecharge/servicecharge.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/servicecharge/servicechargeinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/servicecharge/servicechargeedit.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end ServiceChargeAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~start Currency Management~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+
+        <action name="*Currency" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.CurrencyAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/currency/currency.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/currency/currencyinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/currency/currencyedit.jsp</result>
+        </action>
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end Currency Management ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~start Common Configuration Mgt~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <action name="*CommonConfig" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.CommonConfigAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/commonconfig/commonconfig.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/commonconfig/commonconfigedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end Common Configuration Mgt 
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*SystemAudit" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.SystemAuditAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemaudit/systemaudit/audit.jsp
+            </result>
+            <result name="viewdetail">/WEB-INF/pages/controlpanel/systemaudit/systemaudit/viewaudit.jsp
+            </result>
+            <result name="individualreport" type="jasper">
+                <param name="location">/WEB-INF/pages/controlpanel/systemaudit/reports/individualAuditReport.jasper</param>
+                <param name="dataSource">auditDataBean</param>               
+                <param name="format">PDF</param>     
+                <param name="contentDisposition">attachment;filename=Individual_Audit_Report.pdf</param>
+                <param name="reportParameters">parameterMap</param>
+            </result>
+            <result name="report" type="jasper">
+                <param name="location">/WEB-INF/pages/controlpanel/systemaudit/reports/auditReport.jasper</param>
+                <param name="dataSource">lst</param>
+                <param name="format">PDF</param>
+                <param name="contentDisposition">attachment;filename=Audit_Report.pdf</param>
+                <param name="reportParameters">parameterMap</param>
+            </result> 
+            
+            <result name="excelreport" type="stream">
+                <param name="contentType">"application/vnd.ms-excel"</param>
+                <param name="inputName">excelStream</param>
+                <param name="contentDisposition">attachment;filename="Audit_Report.xlsx"</param>
+                <param name="bufferSize">61440</param>
+            </result>
+            <result name="zip" type="stream">
+                <param name="contentDisposition">attachment;filename="Audit_Report.zip"</param>
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">zipStream</param>
+                <param name="bufferSize">61440</param>
+            </result> 
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end SystemAuditAction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <action name="*RuleScope" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.RuleScopeAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/rulescope/rulescope.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/rulescope/rulescopeinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/rulescope/rulescopeedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end Rule Scope Mgt ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        
+        <!-- Auth Configuration  -->
+        <action name="*AuthConfig" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.AuthConfigurationAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/authconfiguration/authconfiguration.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/authconfiguration/authconfigurationinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/authconfiguration/authconfigurationedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~start On Us Bin Range Mgt~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <action name="*OnUsBinRange" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.OnUsBinRangeAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/onusbinrange/onusbinrange.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/onusbinrange/onusbinrangeinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/onusbinrange/onusbinrangeedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end On Us Bin Range Mgt ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <action name="*IPGMPIInfoServelet" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.IpgInfoAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/ipginfo/ipginfo.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/ipginfo/ipginfoinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/ipginfo/ipginfoedit.jsp</result>
+        </action>
+
+        <action name="*RuleType" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.RuleTypeAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/ruletype/ruletype.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/ruletype/ruletypeinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/ruletype/ruletypeedit.jsp</result>
+        </action>
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~start Rule Type Mgt~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <action name="*Rule" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.RuleAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/systemconfig/rule/rule.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/systemconfig/rule/ruleinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/systemconfig/rule/ruleedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end Rule Type Mgt ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~start Merchant Risk Profile Mgt~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*MerchantRiskProfile" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.systemconfig.MerchantRiskProfileAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantriskprofile/merchantriskprofile.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/merchantmanagement/merchantriskprofile/merchantriskprofileinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/merchantmanagement/merchantriskprofile/merchantriskprofileedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~end Merchant Risk Profile Mgt~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    </package>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end systemconfigmanagement package ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Start Merchant Managemnet package ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <package name="merchantmanagement" extends="pglobal" namespace="/">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ Start Merchant management ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*Merchant" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantManagementAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}</param>
+                <param name="bufferSize">1024</param>
+            </result>
+            <result name="detail">/WEB-INF/pages/controlpanel/merchantmanagement/merchant/merchantmanagementedit.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/merchantmanagement/merchant/merchantmanagementinsert.jsp</result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchant/merchantmanagement.jsp</result>
+            <result name="assignc">/WEB-INF/pages/controlpanel/merchantmanagement/merchant/editassigncurrency.jsp</result>
+            <result name="rule">/WEB-INF/pages/controlpanel/merchantmanagement/merchant/editruleandservice.jsp</result>
+            <result name="uploadcert">/WEB-INF/pages/controlpanel/merchantmanagement/merchant/uploadcertificate.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ End Merchant management ~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!--         ~~~~~~~~~~~~~~~~~~~~~ Start Merchant Service Charge management ~~~~~~~~~~~~~~~~~~~~~ 
+
+        <action name="*MerchantServiceCharges" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantServiceChargeAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantservicecharge.jsp
+            </result>
+        </action>
+
+         ~~~~~~~~~~~~~~~~~~~~~ End Merchant Service Charge management ~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!--         ~~~~~~~~~~~~~~~~~~~~~ Start Merchant certification management ~~~~~~~~~~~~~~~~~~~~~ 
+
+        <action name="*MerchantCertificate" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.UploadMerchantCertificateAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="error" type="json">/WEB-INF/pages/controlpanel/merchantmanagement/uploadmerchantcertificate.jsp
+            </result>
+            <result name="uploaded" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/uploadmerchantcertificate.jsp
+            </result>
+        </action>
+
+         ~~~~~~~~~~~~~~~~~~~~~ End Merchant certification management ~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ Start Merchant Credential management ~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*MerchantCredential" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantCredentialAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantcredential/merchantcredential.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/merchantmanagement/merchantcredential/merchantcredentialinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/merchantmanagement/merchantcredential/merchantcredentialedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ End Merchant Credential management ~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ Start Merchant Currency management ~~~~~~~~~~~~~~~~~~~~~ -->
+<!--
+        <action name="*MerchantCurrencies" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantCurrencyAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantcurrency.jsp
+            </result>
+        </action>-->
+<!--        <action name="*MerchantCurrencies" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantCurrencyAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="find" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantcurrency.jsp
+            </result>
+        </action>-->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ End Merchant Currency management ~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~start Merchant Add On management~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*MerchantAddon" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantAddonAction">
+
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantaddon/merchantaddon.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/merchantmanagement/merchantaddon/merchantaddoninsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/merchantmanagement/merchantaddon/merchantaddonedit.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Merchant Add On management~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Start Head Merchant management~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!--        <action name="*HeadMerchants" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.HeadMerchantAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/headmerchant/headmerchant.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/merchantmanagement/headmerchant/headmerchantinsert.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/merchantmanagement/headmerchant/headmerchantedit.jsp</result>
+        </action>-->
+        <action name="*HeadMerchants" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.HeadMerchantNewAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/headmerchant/headmerchantnew.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/merchantmanagement/headmerchant/headmerchantinsertnew.jsp</result>
+            <result name="detail">/WEB-INF/pages/controlpanel/merchantmanagement/headmerchant/headmerchanteditnew.jsp</result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Head Merchant management~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start merchant terminal management ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*MerchantTerminal" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantTerminalAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="currency" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchnatterminal/merchnatterminal.jsp</result>
+            <result name="viewpopup">/WEB-INF/pages/controlpanel/merchantmanagement/merchnatterminal/merchnatterminalinsert.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end merchant terminal management ~~~~~~~~~~~~~~~~~~~~~ -->
+        
+        <action name="*DSMerchantEnrollment" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.DSMerchantEnrollmentAction">
+            <result name="message">/WEB-INF/pages/controlpanel/merchantmanagement/dsmerchantenrollment.jsp</result>
+            <result name="msg">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>            
+            <!--<result name="createExcel" type="json"></result>-->  
+            <result name="createExcel" type="stream">
+                <param name="contentDisposition">attachment;filename="${fileName}</param>
+                <param name="contentType">application/text</param>
+                <param name="inputName">fileInputStream</param> 
+                <param name="bufferSize">1024</param>
+            </result>            
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/dsmerchantenrollment.jsp
+            </result>
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~  Start Merchant Certificate Management  ~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*MerchantCertificateManager" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantCertificateManagerAction">
+            <result name="message">/WEB-INF/pages/controlpanel/merchantmanagement/merchantcertificatemgt.jsp
+            </result>
+            <result name="download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}</param>
+                <param name="bufferSize">1024</param>
+            </result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantcertificatemgt.jsp
+            </result>
+
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Merchant Certificate Management 
+        ~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+<!--         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Start Merchant Rule Management ~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+        <action name="*MerchantRules" method="{1}"
+                class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.MerchantRuleAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="find" type="json"></result>
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/merchantrule.jsp
+            </result>
+        </action>
+		
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Merchant Rule Management ~~~~~~~~~~~~~~~~~~~~~~~~~   -->
+
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Start Merchant Transaction Batch Upload~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*TransactionBatchUpload" method="{1}" class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.TransactionBatchUploadAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>    
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/transactionbatchupload.jsp</result>
+
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Merchant Transaction Batch Upload~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		
+       <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Start Settlement File downlaod~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <action name="*SettlementFileDownload" method="{1}" class="com.epic.epay.ipg.action.controlpanel.merchantmanagement.SettlementFileDownloadAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>  
+            <result name="list" type="json"></result>  
+            <result name="view">/WEB-INF/pages/controlpanel/merchantmanagement/settlementfiledownload.jsp</result>
+            <result name="download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}</param>
+                <param name="bufferSize">1024</param>
+            </result>
+
+        </action>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Settlement File downlaod~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+
+    </package>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ End Merchant Management package ~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Start Transaction Management package 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <package name="transactionmanagement" extends="pglobal"
+             namespace="/">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ Start Merchant management ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*MerchantTransactionSettlement" method="{1}"
+                class="com.epic.epay.ipg.action.transactionmanagement.MerchantTransactionSettlementAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="search" type="json"></result>
+            <result name="list" type="json"></result>
+            <result name="show">/WEB-INF/pages/transactionmanagement/viewmerchanttxnsettlement.jsp</result>
+            <result name="userpwd">/WEB-INF/pages/transactionmanagement/merchantsettlementdialog.jsp</result>           
+            <result name="view">/WEB-INF/pages/transactionmanagement/merchanttransactionsettlement.jsp
+            </result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~ End Merchant management ~~~~~~~~~~~~~~~~~~~~~ -->
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start moto transaction  ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*MotoTransaction" method="{1}" class="com.epic.epay.ipg.action.transactionmanagement.MotoTransactionAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="find" type="json"></result>
+            <result name="view">/WEB-INF/pages/transactionmanagement/mototransaction.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end moto transaction  ~~~~~~~~~~~~~~~~~~~~~ -->
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start transaction void ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*TransactionVoid" method="{1}" 
+                class="com.epic.epay.ipg.action.transactionmanagement.TransactionVoidAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="void" type="json"></result>
+            <result name="view">/WEB-INF/pages/transactionmanagement/transactionvoid.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end transaction void ~~~~~~~~~~~~~~~~~~~~~ -->
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start transaction void ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*TransactionReversal" method="{1}" 
+                class="com.epic.epay.ipg.action.transactionmanagement.TransactionReversalAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="reversal" type="json"></result>
+            <result name="view">/WEB-INF/pages/transactionmanagement/transactionreversal.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end transaction void ~~~~~~~~~~~~~~~~~~~~~ -->
+        
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start manual transaction  ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*CCBManualTxn" method="{1}" 
+                class="com.epic.epay.ipg.action.transactionmanagement.CCBManualTxnAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success" ></result>
+            <result name="list" type="json"></result>
+            <result name="search" type="json"></result>
+            <result name="process" type="json"></result>
+            <result name="view">/WEB-INF/pages/transactionmanagement/ccbmanualtxn.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end manual transaction ~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start refund transaction  ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*IPGRefundTransactionServlet" method="{1}" class="com.epic.epay.ipg.action.transactionmanagement.RefundTxnAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="view">/WEB-INF/pages/transactionmanagement/refundtransaction.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end refund transaction  ~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start settle transaction  ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*IPGTransactionSettlement" method="{1}" class="com.epic.epay.ipg.action.transactionmanagement.TxnSettlementAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="view">/WEB-INF/pages/transactionmanagement/transactionsettlement.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end settle transaction  ~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~start txn batch upload ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*IPGTxnBatchUploadServlet" method="{1}" class="com.epic.epay.ipg.action.transactionmanagement.TxnBatchUploadAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="show">/WEB-INF/pages/transactionmanagement/viewtxnbatchuploaddata.jsp</result>  
+            <result name="view">/WEB-INF/pages/transactionmanagement/transactionbatchupload.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end txn batch upload  ~~~~~~~~~~~~~~~~~~~~~ -->
+         <!-- ~~~~~~~~~~~~~~~~~~~~~start transaction void ~~~~~~~~~~~~~~~~~~~~~ -->
+        <action name="*TransactionFailed" method="{1}" 
+                class="com.epic.epay.ipg.action.transactionmanagement.TransactionFailedAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="view">/WEB-INF/pages/transactionmanagement/transactionfailed.jsp</result>
+        </action>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~end transaction void ~~~~~~~~~~~~~~~~~~~~~ -->
+        
+              
+    </package>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ End Transaction Management package 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Start Analyzer Management package 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <package name="analyser" extends="pglobal" namespace="/">	
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Start Last Transaction Management ~~~~~~~~~~~~~~~~~~~~~~~~~  -->		
+		
+        <action name="*LastTransaction" method="{1}"
+                class="com.epic.epay.ipg.action.analyser.LastTransactionAction">           
+            <result name="success"></result>
+            <result name="find" type="json"></result>  
+            <result name="view">/WEB-INF/pages/analyzer/lasttransaction.jsp</result>
+        </action>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Last Transaction Management ~~~~~~~~~~~~~~~~~~~~~~~~~  --> 
+    </package>	
+	   
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ End Analyzer Management package 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		
+    
+    <!-- ~~~~~ Start Transaction explorer package ~~~~~~~~~~~~ -->
+    
+    <package name="reportexplorer" extends="pglobal" namespace="/">
+        <action name="*MerchantTransaction" method="{1}"
+                class="com.epic.epay.ipg.action.reportexplorer.MerchantTransactionAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/reportexplorer/merchanttransactions.jsp</result>
+           
+            
+            <result name="report" type="jasper">
+                <param name="location">/WEB-INF/pages/reports/TransactionReport.jasper</param>
+                <param name="dataSource">lst</param>
+                <param name="format">PDF</param>
+                <param name="contentDisposition">attachment;filename=Merchant_Transaction_DetailReport.pdf</param>
+                <param name="reportParameters">parameterMap</param>
+            </result>        
+        </action>
+        
+        <!-- New Method Transaction Summary added to admin user -->
+        <action name="*TransactionSummary" method="{1}"
+                class="com.epic.epay.ipg.action.reportexplorer.TransactionSummaryAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/reportexplorer/transactionsummary.jsp</result>
+           
+            
+            <result name="report" type="jasper">
+                <param name="location">/WEB-INF/pages/reports/TransactionReport.jasper</param>
+                <param name="dataSource">lst</param>
+                <param name="format">PDF</param>
+                <param name="contentDisposition">attachment;filename=Transaction_Summary_Report.pdf</param>
+                <param name="reportParameters">parameterMap</param>
+            </result>        
+        </action>
+        
+        <!-- Transaction Explorer  -->
+        <action name="*TransactionExplorer" method="{1}"
+                class="com.epic.epay.ipg.action.reportexplorer.TransactionExplorerAction">
+            <result name="message">/WEB-INF/pages/msgFrag.jsp</result>
+            <result name="success"></result>
+            <result name="list" type="json"></result>
+            <result name="detaillist" type="json"></result>            
+            <result name="find" type="json"></result>
+            <result name="delete" type="json"></result>
+            <result name="view">/WEB-INF/pages/reportexplorer/transactionexplorer.jsp</result>
+            <result name="detailview">/WEB-INF/pages/reportexplorer/transactionexplorerdetail.jsp</result>
+            
+            <result name="individualreport" type="jasper">
+                <param name="location">/WEB-INF/pages/reports/IndividualTransactionReportDetail.jasper</param>
+                <param name="dataSource">txnDataBean</param>               
+                <param name="format">PDF</param>     
+                <param name="contentDisposition">attachment;filename=Individual_Transaction_Explorer_DetailReport.pdf</param>
+                <param name="reportParameters">parameterMap</param>
+            </result>
+            
+            <result name="report" type="jasper">
+                <param name="location">/WEB-INF/pages/reports/TransactionReportDetail.jasper</param>
+                <param name="dataSource">lst</param>
+                <param name="format">PDF</param>
+                <param name="contentDisposition">attachment;filename=Transaction_Explorer_DetailReport.pdf</param>
+                <param name="reportParameters">parameterMap</param>
+            </result> 
+            
+            <result name="excelreport" type="stream">
+                <param name="contentType">"application/vnd.ms-excel"</param>
+                <param name="inputName">excelStream</param>
+                <param name="contentDisposition">attachment;filename="txnexplorer_report.xlsx"</param>
+                <param name="bufferSize">61440</param>
+            </result>
+            <result name="zip" type="stream">
+                <param name="contentDisposition">attachment;filename="txnexplorer_report.zip"</param>
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">zipStream</param>
+                <param name="bufferSize">61440</param>
+            </result>              
+        </action>
+        
+    </package>
+    
+    
+</struts>

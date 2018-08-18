@@ -1,0 +1,258 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Internet Payment Gateway</title>
+<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/nav/images/favicon.png">
+
+<!--<sj:head jqueryui="true" jquerytheme="redmond"/>-->
+<sj:head jqueryui="true" jquerytheme="flick" customBasepath="resources/themes"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/fonts.css"/>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/bootstrap.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/font-awesome/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/loginmain/css/login.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/style.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/header.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/section.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/nav/css/footer.css"/>
+
+<style>
+
+    html::-webkit-scrollbar {
+        width: 8px !important;
+        background-color: #f1f1f1;
+    }
+    html::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 0px black;
+        background-color: #000000;
+    }
+    /*jQuery ui overide*/
+
+    /*    .ui-jqgrid tr.ui-row-ltr td{
+            font-size: 10px;
+            font-family: sans-serif;
+        }*/
+    .ui-jqgrid tr.jqgrow td{
+        height: 25px !important;
+        padding: 0 2px 0 5px !important;
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable th{
+
+        background-color:  #0050c3;
+        border: none;
+        color: white;
+        font-family: aller;
+    }
+
+    .ui-jqgrid .ui-jqgrid-hdiv{
+        background-color:  #607D8B;
+        padding: 0;
+        overflow: none;
+    }
+    .ui-jqgrid .ui-jqgrid-titlebar{
+        border: none;
+        border-bottom: 2px solid #3b3b3b;
+        padding: 6px 0px 3px 15px !important;
+        font-family: Raleway;
+        font-weight: bold;
+        font-size: 12px;
+        letter-spacing: 1px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .ui-jqgrid .ui-jqgrid-pager{
+        background-color: #ffffff;
+        border-top: 2px solid #ff0808;
+        font-family: sans-serif;
+        color: black;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .ui-jqgrid{
+        border-radius: 10px;
+        border: none;
+        /*overflow: none;*/
+        /*margin-right: 20px;*/
+
+    }
+    .ui-jqgrid .ui-jqgrid-btable{
+        border: 0px solid #ffffff;
+    }
+
+    .ui-jqgrid-resize-ltr{
+        width:5px;
+    }
+
+
+
+    .btn-functions{
+        color: #ffffff !important;
+        background-color: #3b3b3b !important;
+        border-color: #ff0000 !important;
+        border-radius: 0px !important;
+        font-family: raleway !important;
+        font-weight: 500 !important;
+    }
+    .btn-functions:hover{
+        color: #607d8b;
+        background-color: #FFC107;
+        border-color: #FF9800;
+    }
+    .btn-reset{
+        color: #ffffff;
+        background-color: #ff0000;
+        border-color: #3b3b3b;
+        border-radius: 0px;
+        font-family: raleway ;
+        font-weight: 500 !important;
+    }
+    .btn-reset:hover{
+        color: #ffffff;
+        background-color: #ff0000;
+        border-color: #3b3b3b;
+    }
+    .control-label{
+        color:black;
+        font-family: Raleway;
+        font-size: 12px
+    }
+    .control-label>span{
+        font-family: cursive;
+    }
+
+
+    /*bootstarp override*/
+    .form-control{
+        background-color: rgba(255, 255, 255, 0.81);
+        border: 1px solid #cccccc;
+        color:black;
+        border-radius: 0px;
+        height: 34px;
+        padding: 0px 10px 0px 10px;
+        /*font-size: 12px;*/
+    }
+    .form-control:focus{
+        border-color: #0050c3;
+    }
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        background-color: rgba(61, 67, 68, 0.57);
+        opacity: 1;
+        cursor: not-allowed;
+    }
+    table a:not(.btn), .table a:not(.btn){
+        text-decoration: none;
+    }
+    .hasDatepicker[readonly]{
+        background-color: rgba(255, 255, 255, 0.99);
+        cursor: pointer;
+    }
+
+
+    /*moving select sections*/
+    .move-change-side{
+        background-color: rgba(171, 171, 171, 0.55);
+        padding: 13px;
+        border-radius: 10px;
+        margin: 10px 0 20px 0;
+        border-left: 5px solid #607d8b;  
+    }
+    .move-change-side  a{
+        background-color: #84959e;
+        color: white;
+        width: 50px;
+        height: 24px;
+        margin: 2px 0 4px 0;
+        border-radius: 5px;
+        border: 2px solid #7e8b9a;
+    }
+    .move-change-side  a:hover{
+        background-color: #7e8b9a;
+        color: black;
+        border: 2px solid #84959e;
+    }
+    .move-selectClass{
+        border: 7px solid white;
+        height: 145px !important;
+        min-width: 300px;
+        padding: 12px;
+        font-size: 14px;
+        font-family: aller;
+    }
+    .move-buttonClass{
+        float: left;
+        text-align: center;
+        width: 100px;
+        padding: 18px 0px 0 0px;
+    }
+    .move-buttonClassWithText{
+        float: left;
+        text-align: center;
+        width: 100px;
+        padding: 47px 0px 0 0px;
+    }
+    .move-change-side td.textNew{
+        font-size: 13px;
+        font-weight: bold;
+        font-family: aller;
+        padding: 1px 5px;
+        width: auto;
+        color: black;
+    }
+    table.table-newtheme{
+        padding: 0;
+        background-color: white;
+    }
+    table.table-newtheme tbody> tr> td{
+        padding: 0px 0px 0px 20px;
+        font-family: aller;
+        font-size: 13px;
+        font-weight: bold;
+        color: black;
+    }
+    .choosefileClass{
+        border: 1px solid #0074bc;
+        padding: 5px;
+        background-color: #e7ded2;
+        color: black;
+        border-radius: 0px;
+        height: 34px;
+    }
+    input.radioClass{
+        width: 20px;
+        height: 20px;
+        margin: 4px;
+        float: left;
+    }
+    label.radioClass{
+        float: left;
+        margin: 5px;
+        color: black;
+    }
+
+    /*defined col size*/
+    .col-md-defined{
+        width: 20%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+</style>
+<script>
+
+    function centerModal(object) {
+        object.css("position", "fixed");
+        object.css("top", Math.max(0, (($(window).height() - $(object).outerHeight()) / 2)) + "px");
+        object.css("left", Math.max(0, (($(window).width() - $(object).outerWidth()) / 2) +
+                $(window).scrollLeft()) + "px");
+        return object;
+    }
+
+</script>
+<!--Generate random no for csrf attacks-->
+<jsp:useBean id="random" class="java.util.Random" scope="application" />
+<c:set var="csrfValue" value="${random.nextInt(100000000)}" scope="session" />
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>

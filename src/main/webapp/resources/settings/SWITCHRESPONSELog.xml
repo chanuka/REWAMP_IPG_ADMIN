@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : SWITCHRESPONSELog.xml
+    Created on : December 7, 2010, 11:49 AM
+    Author     : saminda
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+
+<mpiresponselogconfiguration>
+	<configurations>
+		<primaryurl>C:/epayipg/switchresponse/</primaryurl>
+                <secondaryurl>/usr/local/epayipg/switchresponse/</secondaryurl>
+	</configurations>
+</mpiresponselogconfiguration>
+
+</root>
